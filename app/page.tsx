@@ -14,7 +14,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bottom">
-          <div className="do">
+          <div className="down-arrow-container">
             <a href="#">
               <span className="visually-hidden">Scroll down</span>
               <svg className="circle" xmlns="http://www.w3.org/2000/svg">

@@ -4,14 +4,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    align-items: center;
     justify-content: center;
+    display: block;
 }
 
 .main-box {
-    align-items: center;
-    justify-content: center;
     text-align: center;
+    margin-top: 70%;
 }
 
 .director {
@@ -39,7 +38,100 @@
     background-size: cover;
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    height: 100vh; /* Make sure the container takes up the entire viewport height */
+    justify-content: center; /* Vertically distribute content evenly */
     align-items: center;
+}
+
+.top {
+    flex: 1; /* Grow to take available space */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+}
+  
+.bottom {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align to the bottom */
+    flex: 1;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+.down-arrow-container {
+    display: flex;
     justify-content: center;
+    margin-bottom: 20px; 
+}
+ 
+a {
+position: relative;
+}
+
+@keyframes occasional-arrow-bounce {
+0% { transform: translateY(0); }
+79% { transform: translateY(0); }
+80% { transform: translateY(2px); }
+100% { transform: translateY(-4px); }
+}
+
+a:after {
+color: #810303;
+content: '\02193';
+font-size: 40px;
+position: absolute;
+top: 50%;
+margin-top: -28px;
+left: 50%;
+margin-left: -17px;
+
+animation: occasional-arrow-bounce 3s infinite 2s alternate ease-out;
+}
+
+.circle {
+height: 124px;
+width: 124px;
+}
+
+.background {
+fill: transparent;
+stroke: rgba(255, 255, 255, 0.1);
+transition: all 200ms ease;
+}
+
+.foreground {
+fill: transparent;
+stroke-dasharray: 377;
+stroke-dashoffset: 377;
+stroke: #810303;
+transform-origin: 50% 50%;
+transform: rotate(-90deg);
+transition: all 800ms ease;
+}
+    
+a:hover .foreground {
+stroke-dashoffset: 0;
+transform: rotate(90deg);
+}
+
+@keyframes arrow-bounce {
+0% { transform: translateY(2px); }
+100% { transform: translateY(-4px); }
+}
+
+a:hover:after {
+animation: arrow-bounce 0.5s infinite alternate ease-out;
 }
 
