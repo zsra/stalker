@@ -3,19 +3,21 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     height: 100vh;
     justify-content: center;
-    display: block;
+    overflow: hidden;
+    display: flex;
 }
 
 .main-box {
     text-align: center;
-    margin-top: 70%;
+    margin-top: 60%;
+    user-select: none;
+    z-index: 10;
 }
 
 .director {
-    margin-bottom: -48px;
-    margin-top: -32px;
     font-size: 32px;
     text-transform: uppercase;
     margin-left: auto; 
@@ -28,7 +30,15 @@
     font-size: 128px;
     font-weight: 500;
     color: #810303;
+    line-height: 1;
     text-transform: uppercase;
+}
+
+.title:hover, .director:hover {
+    text-shadow: 0 0 5px #fff;
+    -moz-text-shadow: 0 0 5px #fff;
+    -webkit-text-shadow: 0 0 5px #fff;
+    transition: 0.3s ease-in-out;
 }
 
 .stalker {
@@ -36,11 +46,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     display: flex;
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
-    height: 100vh; /* Make sure the container takes up the entire viewport height */
-    justify-content: center; /* Vertically distribute content evenly */
+    justify-content: center;
     align-items: center;
 }
 
@@ -95,7 +105,7 @@ a:after {
     top: 50%;
     margin-top: -28px;
     left: 50%;
-    margin-left: -17px;
+    margin-left: -20px;
 
     animation: occasional-arrow-bounce 3s infinite 2s alternate ease-out;
 }
@@ -135,3 +145,7 @@ a:hover:after {
     animation: arrow-bounce 0.5s infinite alternate ease-out;
 }
 
+#particle-container {
+    position: absolute;
+    width: 100vw;
+}

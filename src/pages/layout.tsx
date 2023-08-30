@@ -3,11 +3,6 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Stalker',
-  description: 'Stalker is a 1979 Soviet science fiction art film directed by Andrei Tarkovsky',
-}
-
 export default function RootLayout({
   children,
 }: {

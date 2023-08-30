@@ -1,0 +1,20 @@
+@for $i from 1 through 200 {
+	@keyframes particle-animation-#{$i} {
+		100% {
+			transform: translate3d((random(95) * 1vw), (random(95) * 1vh), (random(100) * 1px));
+		}
+	}
+	
+	.particle:nth-child(#{$i}){
+		animation: particle-animation-#{$i} 100s infinite;
+		$size: random(2) + 2 + px;
+		opacity: random(100)/100;
+		height: $size;
+		width: $size;
+        position: absolute;
+        border-radius: 50%;
+		animation-delay: -$i * .3s;
+		transform: translate3d((random(95) * 1vw), (random(95) * 1vh), (random(100) * 1px));
+		background: #c4c4c4;
+	}
+}

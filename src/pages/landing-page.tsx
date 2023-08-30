@@ -5,7 +5,7 @@ const boo = Black_Ops_One({ weight: "400", subsets: ['latin'] })
 export default function LandingPage() {
   return (
     <main className="landing-page">
-      <div id='particles-js' className="stalker">
+      <div className="stalker">
         <div className="top">
           <div className={`${boo.className} main-box`}>
             <h3 className="director">Andrei Tarkovsky&#39;s</h3>
@@ -25,6 +25,9 @@ export default function LandingPage() {
             </a>
           </div>
         </div>  
+      </div>
+      <div id='particle-container'>
+        {Array.from({ length: 200 }, (_, i) =>  <div className="particle" key={i}></div>)}
       </div>
     </main>
   )
