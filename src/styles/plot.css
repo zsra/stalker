@@ -1,0 +1,11 @@
+.plot {
+    background-image: url("../public/images/plot-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+}

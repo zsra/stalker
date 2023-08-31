@@ -1,11 +1,11 @@
 import '../styles/globals.css'
 import '../styles/landing-page.css'
 import '../styles/particles.scss'
+import '../styles/plot.css'
 import { AppProps } from 'next/app';
-import Script from "next/script";
-import { useEffect } from 'react';
 import Home from '.';
 import { Metadata } from 'next';
+import Plot from './plot';
 
 export const metadata: Metadata = {
     title: 'Stalker',
@@ -13,15 +13,26 @@ export const metadata: Metadata = {
 }
 
 export default function App(props: AppProps) {
-    useEffect(() => {
-      }, []);
     const {
         pageProps,
     }: { pageProps: any } = props
     return (
         <>
             <Home />
-            <Script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" strategy="worker" />
+            <Plot />
+            <script dangerouslySetInnerHTML={{
+                __html: `document.addEventListener('DOMContentLoaded', function () {
+                            document.querySelector('.down-arrow-container')?.addEventListener('click', function () {
+                                const targetElement = document.getElementById('plot-section');
+
+                                if (targetElement) {
+                                    window.scrollTo({
+                                        top: targetElement.offsetTop,
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            });
+                        });`}} />
         </>
     )
 }
