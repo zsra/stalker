@@ -33,6 +33,39 @@ export default function App(props: AppProps) {
                                 }
                             });
                         });`}} />
+            <script dangerouslySetInnerHTML={{
+                __html: `   let isScrolling = false;
+                            let framesToScroll = 30;
+                            let scrollDirection = 0;
+                            let prev = window.scrollY;
+                
+                            function scrollToNextViewport() {
+                                if (framesToScroll > 0 && scrollDirection === -1) {
+                                    const scrollStep = window.innerHeight / framesToScroll;
+                                    window.scrollBy(0, scrollStep);
+                                    framesToScroll--;
+                                    requestAnimationFrame(scrollToNextViewport);
+                                }
+                                else if (framesToScroll <= 30 && scrollDirection === 1) {
+                                    const scrollStep = window.innerHeight / (31 - framesToScroll);
+                                    window.scrollBy(0, -scrollStep);
+                                    framesToScroll++;
+                                    requestAnimationFrame(scrollToNextViewport);
+                                }
+                                else {
+                                    isScrolling = false;
+                                }
+                            }
+                
+                            window.addEventListener('scroll', () => {
+                                if (!isScrolling) {
+                                    isScrolling = true;
+                                    scrollDirection = window.scrollY > prev ? -1 : 1;
+                                    prev =  window.scrollY;
+                                    scrollToNextViewport();
+                                }
+                            });` 
+            }}/>
         </>
     )
 }
