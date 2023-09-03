@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import '../styles/landing-page.css'
 import '../styles/particles.scss'
 import '../styles/plot.css'
+import '../styles/rain.scss'
 import { AppProps } from 'next/app';
 import Home from '.';
 import { Metadata } from 'next';
@@ -32,7 +33,8 @@ export default function App(props: AppProps) {
                                     });
                                 }
                             });
-                        });`}} />
+                        });`
+            }} />
             <script dangerouslySetInnerHTML={{
                 __html: `   let isScrolling = false;
                             let framesToScroll = 30;
@@ -65,7 +67,7 @@ export default function App(props: AppProps) {
                                     scrollToNextViewport();
                                 }
                             });` 
-            }}/>
+            }} />
         </>
     )
 }

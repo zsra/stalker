@@ -7,6 +7,7 @@ export default function Plot() {
     return (
         <section id="plot-section" className={`${russo.className} plot`}>
             <div className="plot-container">
+                {Array.from({ length: 300 }, (_, i) =>  <i className="rain" key={i}></i>)}
                <div className="summary-container">
                 <h3>Summary</h3>
                     <p>Stalker is a 1979 Soviet science fiction film directed by Andrei Tarkovsky. The story follows a guide, 
