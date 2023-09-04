@@ -7,6 +7,7 @@
     height: 100vh;
     justify-content: center;
     overflow: hidden;
+    background-size: 100% 100%;
 }
 
 .plot-container {
@@ -21,6 +22,7 @@
     width: 50vh;
     margin-left: 15vh;
     margin-top: 10%;
+    animation-fill-mode: forwards;
 }
 
 .summary-container > h3 {
@@ -32,4 +34,49 @@
     text-align: justify;
     text-justify: inter-word;
     font-size: 20px;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes shrink {
+    0% {
+      background-size: 110% 110%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+      background-size: 100% 100%;
+    }
+    100% {
+      background-size: 110% 110%;
+    }
 }
