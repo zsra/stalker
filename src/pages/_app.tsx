@@ -3,10 +3,12 @@ import '../styles/landing-page.css'
 import '../styles/particles.scss'
 import '../styles/plot.css'
 import '../styles/rain.scss'
+import '../styles/cast.css'
 import { AppProps } from 'next/app';
 import Home from '.';
 import { Metadata } from 'next';
 import Plot from './plot';
+import Cast from './cast'
 
 export const metadata: Metadata = {
     title: 'Stalker',
@@ -21,6 +23,7 @@ export default function App(props: AppProps) {
         <>
             <Home />
             <Plot />
+            <Cast />
             <script dangerouslySetInnerHTML={{
                 __html: `document.addEventListener('DOMContentLoaded', function () {
                             document.querySelector('.down-arrow-container')?.addEventListener('click', function () {
