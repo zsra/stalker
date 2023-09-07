@@ -2,7 +2,6 @@ import { Russo_One } from 'next/font/google'
 
 const russo = Russo_One({ weight: "400", subsets: ['latin'] })
 
-
 export default function Plot() {
     return (
         <section id="plot-section" className={`${russo.className} plot`}>
