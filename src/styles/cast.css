@@ -18,7 +18,43 @@
     background-image: linear-gradient(to left, rgba(0,0,0,0.9), rgba(0,0,0,1));
 }
 
+.cast-list {
+    display: flex;
+    margin: 75px;
+}
+
 .cast-container > h3 {
     font-size: 48px;
-    margin-bottom: 32px;
+    margin-top: 48px;
+    margin-left: 10%;
+}
+
+.actor-container {
+    margin-left: 40px;
+    flex: 1;
+}
+
+.actor-container > .actor-description {
+    width: 60%;
+    float: left;
+}
+
+.actor-container > .ctor-image-container {
+    width: 40%;
+    float: right;
+}
+
+.actor-description > h5 {
+    font-size: 36px;
+    margin: 32px;
+}
+
+.actor-description > p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.portrait {
+    margin: 15px;
+    float: right;
 }
