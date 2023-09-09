@@ -25,7 +25,6 @@ export default function App(props: AppProps) {
             <Home />
             <Plot />
             <Cast />
-            
             <Script src='scripts/scroll.js' />
             <Script src='scripts/scrollButton.js' />
         </>
