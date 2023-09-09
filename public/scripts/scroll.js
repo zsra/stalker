@@ -1,63 +1,48 @@
+const sections = document.querySelectorAll("section");
+let currentSectionIndex = 0;
 let isScrolling = false;
-let framesToScroll = 30;
-let scrollDirection = 0;
-let prev = window.scrollY;
-let animationRun = false;
 
-let summary = document.querySelector('.summary-container');
-let plot = document.querySelector('.plot');
-let stalker = document.querySelector('.stalker');
+// Function to scroll to the specified section smoothly
+function scrollToSection(sectionIndex) {
+    const targetPosition = sections[sectionIndex].offsetTop;
+    const currentPosition = window.scrollY;
+    const distance = targetPosition - currentPosition;
+    const duration = 1000; // Adjust this time for smoother/faster scrolling
+    const startTime = performance.now();
 
-function scrollToNextViewport() {
-    if (framesToScroll > 0 && scrollDirection === -1) {
-        const scrollStep = window.innerHeight / framesToScroll;
-        window.scrollBy(0, scrollStep);
-        framesToScroll--;
-        if(animationRun) {
-            addPlotAnimations();
-            animationRun = false;
+    function scrollStep(timestamp) {
+        if (!isScrolling) return;
+
+        const elapsedTime = timestamp - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        window.scrollTo(0, currentPosition + distance * progress);
+
+        if (progress < 1) {
+            requestAnimationFrame(scrollStep);
         }
-        requestAnimationFrame(scrollToNextViewport);
     }
-    else if (framesToScroll <= 30 && scrollDirection === 1) {
-        const scrollStep = window.innerHeight / (31 - framesToScroll);
-        window.scrollBy(0, -scrollStep);
-        framesToScroll++;
-        if(animationRun) {
-            updatePlotAnimations();
-            animationRun = false;
+
+    requestAnimationFrame(scrollStep);
+}
+
+// Add an event listener to handle wheel scrolling
+window.addEventListener("wheel", function(event) {
+    if (isScrolling) return;
+    isScrolling = true;
+    if (event.deltaY > 0) {
+        if (currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+            scrollToSection(currentSectionIndex);
         }
-        requestAnimationFrame(scrollToNextViewport);
+    } else if (event.deltaY < 0) {
+        if (currentSectionIndex > 0) {
+            currentSectionIndex--;
+            scrollToSection(currentSectionIndex);
+        }
     }
-    else {
-        isScrolling = false;
-        removePlotAnimations();
-    }
-}
 
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        isScrolling = true;
-        animationRun = true;
-        scrollDirection = window.scrollY > prev ? -1 : 1;
-        prev =  window.scrollY;
-        scrollToNextViewport();
-    }
-});
-
-function addPlotAnimations() {
-    summary.style.animation = 'fadeInAnimation ease-in-out 2s';
-    plot.style.animation =  'shrink 5s';
-}
-
-function updatePlotAnimations() {
-    summary.style.animation = 'fadeOutAnimation ease-in-out 2s';
-    plot.style.animation =  'scaleUp 5s';
-}
-
-function removePlotAnimations() {
+    // Reset scrolling flag after a short delay
     setTimeout(function() {
-        summary.style.removeProperty('animation');  
-        plot.style.removeProperty('animation');
-        }, 5000);
-}
+        isScrolling = false;
+    }, 1500); // Adjust this time to prevent rapid scrolling
+});

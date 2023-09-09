@@ -1,0 +1,11 @@
+.influence {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    background-size: 100% 100%;
+    color: #fff;
+}
