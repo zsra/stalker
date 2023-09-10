@@ -31,7 +31,6 @@ export default function App(props: AppProps) {
             <Cast />
             <Influence />
             <Script src='scripts/scroll.js' />
-            <Script src='scripts/scrollButton.js' />
         </>
     )
 }

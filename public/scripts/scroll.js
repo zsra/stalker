@@ -1,13 +1,14 @@
 const sections = document.querySelectorAll("section");
+const summary = document.querySelector('.summary-container');
+const plot = document.querySelector('.plot');
 let currentSectionIndex = 0;
 let isScrolling = false;
 
-// Function to scroll to the specified section smoothly
 function scrollToSection(sectionIndex) {
     const targetPosition = sections[sectionIndex].offsetTop;
     const currentPosition = window.scrollY;
     const distance = targetPosition - currentPosition;
-    const duration = 1000; // Adjust this time for smoother/faster scrolling
+    const duration = 1000;
     const startTime = performance.now();
 
     function scrollStep(timestamp) {
@@ -25,24 +26,64 @@ function scrollToSection(sectionIndex) {
     requestAnimationFrame(scrollStep);
 }
 
-// Add an event listener to handle wheel scrolling
 window.addEventListener("wheel", function(event) {
     if (isScrolling) return;
+    
     isScrolling = true;
-    if (event.deltaY > 0) {
-        if (currentSectionIndex < sections.length - 1) {
-            currentSectionIndex++;
-            scrollToSection(currentSectionIndex);
+   
+    console.log(sections);
+    
+    if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+        currentSectionIndex++;
+
+        if (currentSectionIndex === 1) {
+            addPlotAnimations();
         }
-    } else if (event.deltaY < 0) {
-        if (currentSectionIndex > 0) {
-            currentSectionIndex--;
-            scrollToSection(currentSectionIndex);
+        else if (currentSectionIndex === 0 || currentSectionIndex === 2) {
+            updatePlotAnimations();
         }
+
+        scrollToSection(currentSectionIndex);
+
+    } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+        currentSectionIndex--;
+
+        if (currentSectionIndex === 1) {
+            addPlotAnimations();
+        }
+        else if (currentSectionIndex === 0 || currentSectionIndex === 2) {
+            updatePlotAnimations();
+        }
+
+        scrollToSection(currentSectionIndex);
     }
 
-    // Reset scrolling flag after a short delay
     setTimeout(function() {
         isScrolling = false;
-    }, 1500); // Adjust this time to prevent rapid scrolling
+    }, 1500);
 });
+
+document.querySelector('.down-arrow-container')?.addEventListener('click', function () {
+    const targetElement = document.getElementById('plot-section');
+
+    if (targetElement) {
+        addPlotAnimations();
+
+        currentSectionIndex++;
+
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+});
+
+function addPlotAnimations() {
+    summary.style.animation = 'fadeInAnimation ease-in-out 2s';
+    plot.style.animation =  'shrink 5s';
+}
+
+function updatePlotAnimations() {
+    summary.style.animation = 'fadeOutAnimation ease-in-out 2s';
+    plot.style.animation =  'scaleUp 5s';
+}
