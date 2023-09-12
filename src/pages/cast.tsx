@@ -10,7 +10,7 @@ export default function Cast() {
                 <h3>Cast</h3>
                 <div className="cast-list">
                     <div className="actor-container">
-                        <div className="actor-description">
+                        <div className="actor-description actor-effect">
                             <h5>Aleksandr Kaydanovskiy</h5>
                             <p>
                                 Aleksandr Kaydanovskiy was a talented Soviet actor best known for his iconic role as The Stalker in Andrei Tarkovsky&#39;s 1979 science fiction film Stalker. 
@@ -19,7 +19,7 @@ export default function Cast() {
                                 His stoic and contemplative presence contributed significantly to the enduring legacy of Stalker as a thought-provoking and visually stunning work of cinema.
                             </p>
                         </div>
-                        <div className="actor-image-container">
+                        <div className="actor-image-container actor-effect">
                             <Image  className='portrait' 
                                     src="/images/cast/Aleksandr_Kaydanovskiy.jpg" 
                                     alt='Aleksandr Kaydanovskiy' 
@@ -28,7 +28,7 @@ export default function Cast() {
                         </div>
                     </div>
                     <div className="actor-container">      
-                        <div className="actor-description">
+                        <div className="actor-description actor-effect">
                             <h5>Anatoly Solonitsyn</h5>
                             <p>
                             Anatoly Solonitsyn, another accomplished Soviet actor, played the role of The Writer in Andrei Tarkovsky&#39;s Stalker. Solonitsyn&#39;s character, 
@@ -37,7 +37,7 @@ export default function Cast() {
                             human psyche and existential questions, making Stalker a cinematic masterpiece deeply enriched by its talented cast.
                             </p>
                         </div>
-                        <div className="actor-image-container">
+                        <div className="actor-image-container actor-effect">
                             <Image  className='portrait' 
                                     src="/images/cast/Anatoly_Solonitsyn.jpg" 
                                     alt='Anatoly Solonitsyn'
@@ -47,7 +47,7 @@ export default function Cast() {
                         <div className="actor-description"></div>
                     </div>
                     <div className="actor-container">
-                        <div className="actor-description">
+                        <div className="actor-description actor-effect">
                             <h5>Nikolai Grinko</h5>
                             <p>
                             Nikolai Grinko portrayed The Professor in Andrei Tarkovsky&#39;s Stalker, forming a compelling trio of characters alongside 
@@ -56,7 +56,7 @@ export default function Cast() {
                             making his performance a vital part of the movie&#39;s profound narrative.
                             </p>
                         </div>
-                        <div className="actor-image-container">
+                        <div className="actor-image-container actor-effect">
                             <Image  className='portrait' 
                                     src="/images/cast/Nikolai_Grinko.jpg" 
                                     alt='Nikolai Grinko'

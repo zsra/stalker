@@ -1,6 +1,7 @@
 const sections = document.querySelectorAll("section");
 const summary = document.querySelector('.summary-container');
 const plot = document.querySelector('.plot');
+const actors = document.querySelectorAll('.actor-effect');
 let currentSectionIndex = 0;
 let isScrolling = false;
 
@@ -43,6 +44,13 @@ window.addEventListener("wheel", function(event) {
             updatePlotAnimations();
         }
 
+        if (currentSectionIndex === 2) {
+            addCastAnimations();
+        }
+        else if (currentSectionIndex === 1 || currentSectionIndex === 3) {
+            updateCastAnimations();
+        }
+
         scrollToSection(currentSectionIndex);
 
     } else if (event.deltaY < 0 && currentSectionIndex > 0) {
@@ -53,6 +61,13 @@ window.addEventListener("wheel", function(event) {
         }
         else if (currentSectionIndex === 0 || currentSectionIndex === 2) {
             updatePlotAnimations();
+        }
+
+        if (currentSectionIndex === 2) {
+            addCastAnimations();
+        }
+        else if (currentSectionIndex === 1 || currentSectionIndex === 3) {
+            updateCastAnimations();
         }
 
         scrollToSection(currentSectionIndex);
@@ -86,4 +101,12 @@ function addPlotAnimations() {
 function updatePlotAnimations() {
     summary.style.animation = 'fadeOutAnimation ease-in-out 2s';
     plot.style.animation =  'scaleUp 5s';
+}
+
+function addCastAnimations() {
+    actors.forEach(a => a.style.animation = ' slideAndFade 2.5s ease forwards');
+}
+
+function updateCastAnimations() {
+    actors.forEach(a => a.style.animation = ' slideAndFadeOut 2.5s ease forwards');
 }

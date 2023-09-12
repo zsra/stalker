@@ -66,3 +66,32 @@
     margin: 15px;
     float: right;
 }
+
+.actor-effect {
+    position: relative;
+    top: -100px;
+    transform: translateX(0, -50%);
+    opacity: 0;
+}
+
+@keyframes slideAndFade {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    100% {
+        top: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideAndFadeOut {
+    0% {
+        top: 50px;
+        opacity: 1;
+    }
+    100% {
+        top: -100px;
+        opacity: 0;
+    }
+}
