@@ -26,9 +26,9 @@ export default function App(props: AppProps) {
     }: { pageProps: any } = props
     return (
         <>
-            {/* <Home />
+            <Home />
             <Plot />
-            <Cast /> */}
+            <Cast />
             <Influence />
             <Script src='scripts/scroll.js' />
         </>
