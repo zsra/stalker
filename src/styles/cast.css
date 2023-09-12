@@ -32,6 +32,14 @@
 .actor-container {
     margin-left: 40px;
     flex: 1;
+    background-image: linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0255, 255, 255, 0.3)) 30;
+    border-right-width: 2px;
+    border-style: solid;
+}
+
+.actor-container:last-of-type {
+    border-right-width: 0px;
 }
 
 .actor-container > .actor-description {
